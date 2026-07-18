@@ -1,4 +1,4 @@
-const BACKEND_URL = "https://quest-backend.onrender.com";
+const BACKEND_URL = "https://quest-end.onrender.com";
 
 // Открытие и закрытие окон
 document.querySelectorAll(".icon").forEach(icon => {
