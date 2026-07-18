@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Админ‑панель</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="admin-body">
+  <h2>Панель администратора</h2>
+  <p>Вывод уведомлений игрокам:</p>
+
+  <div class="admin-controls">
+    <button onclick="sendAlert('⚠ Электричество отключается!')">Отключение электричества</button>
+    <button onclick="sendAlert('🚨 Вентиляция сломалась!')">Поломка вентиляции</button>
+    <button onclick="sendAlert('🔒 Система безопасности активирована!')">Система безопасности</button>
+    <button onclick="sendAlert('🔥 Перегрев оборудования!')">Перегрев</button>
+    <button onclick="sendAlert('📡 Потеря связи с сервером!')">Потеря связи</button>
+    <button onclick="clearAlert()">Очистить уведомление</button>
+  </div>
+
+  <script>
+    function sendAlert(message) {
+      localStorage.setItem('alertMessage', message);
+    }
+    function clearAlert() {
+      localStorage.removeItem('alertMessage');
+    }
+  </script>
+</body>
+</html>
