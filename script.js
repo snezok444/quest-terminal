@@ -18,7 +18,7 @@ document.querySelectorAll(".close-btn").forEach(btn => {
 // Видео
 function changeVideo(file) {
   const player = document.getElementById("video-player");
-  player.src = /${file};
+  player.src = file
   player.play();
 }
 
