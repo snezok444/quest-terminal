@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Бункерный терминал</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div id="desktop">
+  <div id="icons">
+
+    <!-- Плеер -->
+    <div class="icon" data-open="video-window">
+      <div class="icon-box">📼</div>
+      <div class="icon-label">Видео</div>
+    </div>
+
+    <!-- Ключ доступа -->
+    <div class="icon" data-open="access-window">
+      <div class="icon-box">🔑</div>
+      <div class="icon-label">Ключ доступа</div>
+    </div>
+
+    <!-- Фальшивые иконки -->
+    <div class="icon">
+      <div class="icon-box">🗂️</div>
+      <div class="icon-label">Архив</div>
+    </div>
+    <div class="icon">
+      <div class="icon-box">⚙️</div>
+      <div class="icon-label">Настройки</div>
+    </div>
+    <div class="icon">
+      <div class="icon-box">💾</div>
+      <div class="icon-label">Система</div>
+    </div>
+  </div>
+
+  <div id="workspace">
+
+    <!-- ОКНО ВИДЕО -->
+    <div class="window hidden" id="video-window">
+      <div class="window-titlebar">
+        <span>Видео проигрыватель</span>
+        <button class="close-btn" data-close="video-window">X</button>
+      </div>
+      <div class="window-inner">
+        <video id="video-player" controls width="100%">
+          <source src="/video1.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-controls">
+          <button onclick="changeVideo('video1.mp4')">Видео 1</button>
+          <button onclick="changeVideo('video2.mp4')">Видео 2</button>
+          <button onclick="changeVideo('video3.mp4')">Видео 3</button>
+          <button onclick="changeVideo('video4.mp4')">Видео 4</button>
+          <button onclick="changeVideo('video5.mp4')">Видео 5</button>
+          <button onclick="changeVideo('video6.mp4')">Видео 6</button>
+          <button onclick="changeVideo('video7.mp4')">Видео 7</button>
+          <button onclick="changeVideo('video8.mp4')">Видео 8</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ОКНО КЛЮЧА ДОСТУПА -->
+    <div class="window hidden" id="access-window">
+      <div class="window-titlebar">
+        <span>Панель доступа</span>
+        <button class="close-btn" data-close="access-window">X</button>
+      </div>
+      <div class="window-inner">
+        <label>Введите ответ:</label>
+        <input type="text" id="access-input">
+        <button id="access-btn">Проверить</button>
+        <div class="output" id="access-output">Ожидание ввода…</div>
+      </div>
+    </div>
+
+    <!-- УВЕДОМЛЕНИЯ -->
+    <div id="alert-bar" class="hidden">
+      <div class="alert-stripes"></div>
+      <div id="alert-text"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="/script.js"></script>
+</body>
+</html>
