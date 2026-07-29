@@ -54,19 +54,18 @@ const alertBar = document.getElementById("alert-bar");
 const alertText = document.getElementById("alert-text");
 
 async function checkAlert() {
-  try {
-    const res = await fetch(BACKEND_URL + "/alert");
+    const res = await fetch(`${BACKEND_URL}/alert`);
     const data = await res.json();
 
+    const box = document.getElementById("alert-box");
+
     if (data.message) {
-      alertText.textContent = data.message;
-      alertBar.classList.remove("hidden");
+        box.innerText = data.message;
+        box.style.display = "block";
     } else {
-      alertBar.classList.add("hidden");
+        box.innerText = "";
+        box.style.display = "none";
     }
-  } catch (e) {
-    // можно ничего не делать, если сервер недоступен
-  }
 }
 
-setInterval(checkAlert, 500);
+setInterval(checkAlert, 1000);
