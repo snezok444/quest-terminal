@@ -19,14 +19,20 @@
   </div>
 
   <script>
-    const BACKEND_URL = "https://quest-end.onrender.com";
-    
-    function sendAlert(message) {
-      localStorage.setItem('alertMessage', message);
-    }
-    function clearAlert() {
-      localStorage.removeItem('alertMessage');
-    }
-  </script>
+const BACKEND_URL = "https://quest-end.onrender.com";
+
+function sendAlert(message) {
+    fetch(`${BACKEND_URL}/alert`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log("Отправлено:", data);
+    })
+    .catch(err => console.error("Ошибка:", err));
+}
+</script>
 </body>
 </html>
