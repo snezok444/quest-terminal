@@ -74,11 +74,56 @@
       </div>
     </div>
 
-    <!-- УВЕДОМЛЕНИЯ -->
-
   </div>
 </div>
 
-<script src="script.js"></script>
+<script>
+// -----------------------------
+// ОФФЛАЙН ПРОВЕРКА СЛОВА
+// -----------------------------
+
+document.getElementById("access-btn").addEventListener("click", checkAccess);
+
+function checkAccess() {
+    const input = document.getElementById("access-input").value.trim().toLowerCase();
+    const output = document.getElementById("access-output");
+
+    const correctWord = "ключ";      // ← СЛОВО, которое должен ввести игрок
+    const secretCode  = "CODE-123";  // ← КОД, который покажется при правильном слове
+
+    if (input === correctWord) {
+        output.textContent = "Доступ разрешён. Ваш код: " + secretCode;
+        output.style.color = "lime";
+    } else {
+        output.textContent = "Неверно!";
+        output.style.color = "red";
+    }
+}
+
+// -----------------------------
+// ПЕРЕКЛЮЧЕНИЕ ВИДЕО
+// -----------------------------
+function changeVideo(src) {
+    const player = document.getElementById("video-player");
+    player.src = src;
+    player.play();
+}
+
+// -----------------------------
+// ОТКРЫТИЕ / ЗАКРЫТИЕ ОКОН
+// -----------------------------
+document.querySelectorAll("[data-open]").forEach(icon => {
+    icon.addEventListener("click", () => {
+        document.getElementById(icon.dataset.open).classList.remove("hidden");
+    });
+});
+
+document.querySelectorAll("[data-close]").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.getElementById(btn.dataset.close).classList.add("hidden");
+    });
+});
+</script>
+
 </body>
 </html>
